@@ -19,7 +19,16 @@
     <h2>Guess what letter I'm thinking of</h2>
 
 
+    <div>
+        <p id="wins"></p>
+        <p id="losses"></p>
+        <p id="Guesses"></p>
+        <p id="Left"></p>
+    </div>
+
+
     <script>
+        // Creative variables
         var wins = 0;
         var losses = 0;
         var guessesLeft = 10;
@@ -31,10 +40,10 @@
 
         var alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
         var RandomLetter = alpha[Math.floor(Math.random() * alpha.length)]
+            // Create random letter generator for computer pick
 
 
-
-
+        // Create click command for user guess and comparison to computer guess
         document.onkeypress = function(event) {
             var userGuess = event.key;
 
@@ -48,7 +57,21 @@
                 losses++
             }
 
+
+
+
+            winsText.textContent = "wins: " + wins;
+            lossesText.textContent = "losses: " + losses;
+            GuessLeftText.textContent = "Guesses so far: " + userGuess;
         }
+
+        function restart() {
+            if (losses === 1) {
+                guessLeft = 10;
+            }
+        }
+
+        // function for keeping score and showing on screen
     </script>
 
 </body>

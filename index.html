@@ -5,10 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <script src="assets/javascript/game.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="resetsheet" type="text/css" href="asstets/css/reset.css">
+
+    <title>Psychic Game</title>
 </head>
 
 <body>
+
+    <h1>Psychic Game</h1>
+
+    <h2>Guess what letter I'm thinking of</h2>
+
+
+    <script>
+        var wins = 0;
+        var losses = 0;
+        var guessesLeft = 10;
+
+        var winsText = document.getElementById("wins");
+        var lossesText = document.getElementById("losses");
+        var GuessLeftText = document.getElementById("Left");
+        var GuessesText = document.getElementById("Guesses");
+
+        var alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        var RandomLetter = alpha[Math.floor(Math.random() * alpha.length)]
+
+
+
+
+        document.onkeypress = function(event) {
+            var userGuess = event.key;
+
+            if (userGuess === RandomLetter) {
+                wins++;
+            } else {
+                guessesLeft--;
+            }
+
+            if (guessesLeft === 0) {
+                losses++
+            }
+
+        }
+    </script>
 
 </body>
 
